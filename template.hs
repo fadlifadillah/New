@@ -83,7 +83,8 @@ head' x = x
 
 --pembatas
 
-length' x = x
+length' [] = 0
+length' (b:bs) = 1 + (length' bs)
 
 --pembatas
 
@@ -103,11 +104,15 @@ init' x = x
 
 --pembatas
 
-max' x = x
+max' (a,b)
+  | (a>=b) = a
+  | (b>=a) = b
 
 --pembatas
 
-min' x = x
+min' (a,b)
+  | (a<=b) = a
+  | (b<=a) = b
 
 --pembatas
 
@@ -135,7 +140,8 @@ zip3' x = x
 
 --pembatas
 
-sum' x = x
+sum' [] = 0
+sum' (a:as) = a + (sum' as)
 
 --pembatas
 
