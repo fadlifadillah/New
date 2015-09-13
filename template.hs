@@ -7,19 +7,24 @@ import Data.List
 
 -- 1.a
 
-null' x = x
+null' [] = True
+null' _ = False
 
 --pembatas
 
-take' x = x
+take' 0 xs = []
+take' _ [] = []
+take' n (a:as) = a : take' (n-1) as
 
 --pembatas
 
-drop' x = x
+drop' 0 as = as
+drop' _ [] = []
+drop' n (a:as) = drop' (n-1) as
 
 --pembatas
 
-fst' (x, y) = x
+fst' (a, b) = a
 
 --pembatas
 
@@ -79,24 +84,23 @@ notElem' x = x
 
 --pembatas
 
-head' x = x
+head' (a:as) = (a)
 
 --pembatas
 
 length' [] = 0
-length' (b:bs) = 1 + (length' bs)
+length' (a:as) = 1 + (length' as)
 
 --pembatas
 
 reverse' x = x
-
 --pembatas
 
 last' x = x
 
 --pembatas
 
-tail' x = x
+tail' (a:as) = (as)
 
 --pembatas
 
@@ -145,7 +149,9 @@ sum' (a:as) = a + (sum' as)
 
 --pembatas
 
-product' x = x
+product' [] = 1
+product' (a:as) = a * (product' as)
+--product'
 
 --pembatas
 
