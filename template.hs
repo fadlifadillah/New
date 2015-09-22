@@ -32,15 +32,19 @@ snd' (a, b) = b
 
 --pembatas
 
-map' x = x
-
+-- I haven't finished yet
+--map' (x) [] = []
+--map' (x) (a:as) =
 --pembatas
 
 filter' x = x
-
 --pembatas
 
-delete' x = x
+delete' x [] = []
+delete' x (a:as)
+  | x == a = as
+  | otherwise = a : delete' x as
+
 
 --pembatas
 
@@ -56,8 +60,9 @@ foldl1' x = x
 
 --pembatas
 
-zip' x = x
-
+-- I haven't finished yet
+--zip' [] [] = []
+--zip' (a:as) =
 --pembatas
 
 zipWith' x = x
@@ -76,7 +81,10 @@ scanl1' x = x
 
 --pembatas
 
-elem' x = x
+-- I haven't finished yet
+--elem' _[] = False
+--elem' n (a:as) =
+--belum selsai
 
 --pembatas
 
@@ -93,10 +101,12 @@ length' (a:as) = 1 + (length' as)
 
 --pembatas
 
-reverse' x = x
+reverse' [] = []
+reverse' (a:as) = reverse' as ++ [a]
 --pembatas
 
-last' x = x
+last' [a] = a
+last' (a:as) = last' as
 
 --pembatas
 
@@ -104,7 +114,8 @@ tail' (a:as) = (as)
 
 --pembatas
 
-init' x = x
+init' [a] = []
+init' (a:as) = a : init' as
 
 --pembatas
 
@@ -120,15 +131,18 @@ min' (a,b)
 
 --pembatas
 
-concat' x = x
+concat' [[]] = []
+concat' [(a:as)] = (a:as)
 
 --pembatas
 
-intersperse' x = x
+intersperse' _[] = []
+intersperse' n (a:as) = a:n:intersperse' n as
 
 --pembatas
 
-intercalate' x = x
+-- I haven't finished yet
+--intercalate' [] [[]] = []
 
 --pembatas
 
@@ -140,8 +154,10 @@ or' x = x
 
 --pembatas
 
-zip3' x = x
-
+--zip3' [] [] [] = []
+--zip3' [a] [b] [c] = [(a,b,c)]
+--zip3' [a,b] [c,d] [e,f] = [(a,c,e), (b,d,f)]
+--zip3' (a:as) (k:ks) (x:xs) =
 --pembatas
 
 sum' [] = 0
@@ -155,7 +171,8 @@ product' (a:as) = a * (product' as)
 
 --pembatas
 
-words' x = x
+-- I haven't finished yet
+--words' "" = []
 
 --pembatas
 
@@ -201,7 +218,8 @@ zipWith3' x = x
 
 -- 1.b
 
-nub' x = x
+nub' [] = []
+nub' (a:as) = (a:as)
 
 --pembatas
 
